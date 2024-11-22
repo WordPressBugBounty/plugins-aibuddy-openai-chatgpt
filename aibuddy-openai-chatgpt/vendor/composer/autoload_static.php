@@ -36,6 +36,7 @@ class ComposerStaticInita690845452d2f7c24a01974626619bd1
         ),
         'A' => 
         array (
+            'AiBuddy\\Pro\\' => 12,
             'AiBuddy\\' => 8,
         ),
     );
@@ -73,6 +74,10 @@ class ComposerStaticInita690845452d2f7c24a01974626619bd1
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'AiBuddy\\Pro\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/pro/includes',
         ),
         'AiBuddy\\' => 
         array (

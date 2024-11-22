@@ -1,4 +1,4 @@
-=== AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o Best AI WordPress Plugin ===  
+﻿=== AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o Best AI WordPress Plugin ===  
 Contributors: ahmedgeek
 Donate link: https://aibudwp.com/  
 Tags: AI, ChatGPT, content generator, chatbot, Gemini
@@ -6,8 +6,8 @@ Author URI: https://aibudwp.com/
 Author: AI Bud  
 Requires at least: 4.6  
 Requires PHP: 7.4
-Tested up to: 6.6
-Stable tag: 1.7.1
+Tested up to: 6.7
+Stable tag: 1.7.2
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
   
@@ -182,6 +182,9 @@ Installation is easy - all you need to do is to follow a few steps:
   
   
 == Changelog ==
+= 1.7.2 =
+Improvement: stability and performance improvements.
+
 = 1.7.1 =
 Improvement: Added support for the new Gemini 1.5 Pro and 1.5 Flash to the AI Bud block.
 

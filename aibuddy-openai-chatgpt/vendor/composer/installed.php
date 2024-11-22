@@ -3,7 +3,7 @@
         'name' => 'wpcenter/ai-buddy',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '9d18773dd216107c475fedc55007515aff614111',
+        'reference' => 'ccd49278328857741e3b7a519beed6bc7de17f20',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -154,7 +154,7 @@
         'wpcenter/ai-buddy' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '9d18773dd216107c475fedc55007515aff614111',
+            'reference' => 'ccd49278328857741e3b7a519beed6bc7de17f20',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
