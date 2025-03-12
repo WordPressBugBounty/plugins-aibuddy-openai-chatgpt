@@ -1,0 +1,59 @@
+.ai-buddy-notice {
+    -webkit-font-smoothing: antialiased;
+    background-color: $white;
+    border-radius: 10px;
+    display: flex;
+    max-width: 1280px;
+    margin-top: 12px;
+    margin-right: 20px;
+
+    &-img {
+        img {
+            height: 100%;
+            max-width: 160px;
+            width: auto;
+            object-fit: cover;
+        }
+    }
+
+    &-content {
+        width: 100%;
+        padding: 12px 0;
+        color: $light-dark;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 15px;
+        font-weight: 400;
+
+        strong {
+            font-weight: 700;
+        }
+
+        &-text {
+            padding: 12px 24px;
+        }
+    }
+
+    &-action {
+        color: $light-dark;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 6px 24px;
+        border-radius: 50px;
+        background-color: white;
+        transition: all 0.3s ease;
+        border: 1px solid $blue;
+
+        @include hover-active-focus {
+            background-color: $blue;
+            color: $white;
+        }
+
+        &-container {
+            display: flex;
+            gap: 26px;
+            justify-content: center;
+        }
+    }
+}

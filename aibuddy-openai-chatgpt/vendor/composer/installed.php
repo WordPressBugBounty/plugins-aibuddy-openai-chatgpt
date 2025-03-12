@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'wpcenter/ai-buddy',
-        'pretty_version' => 'dev-develop',
-        'version' => 'dev-develop',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'reference' => 'ccd49278328857741e3b7a519beed6bc7de17f20',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -152,8 +152,8 @@
             'dev_requirement' => false,
         ),
         'wpcenter/ai-buddy' => array(
-            'pretty_version' => 'dev-develop',
-            'version' => 'dev-develop',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'reference' => 'ccd49278328857741e3b7a519beed6bc7de17f20',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $post;
 $general_setting = get_option( 'ai_buddy', array() );
 if ( isset( $general_setting['modules']['titles'] ) && $general_setting['modules']['titles'] ) :
@@ -45,9 +46,9 @@ endif;
 					<div class="section-content">
 						<div class="response-message align-center">
 							<span class="aibuddy-close-outline response-message-icon"></span>
-							<div class="section-subtitle"><?php echo esc_html__( 'An error occurred', 'chatgpt-openai-wordpress-plugin' ); ?></div>
+							<div class="section-subtitle"><?php echo esc_html__( 'An error occurred', 'aibuddy-openai-chatgpt' ); ?></div>
 							<div class="section-description">
-								<?php echo esc_html__( 'There may be issues with the server or internet connection, or it\'s possible that an incorrect API KEY has been specified.', 'chatgpt-openai-wordpress-plugin' ); ?>
+								<?php echo esc_html__( 'There may be issues with the server or internet connection, or it\'s possible that an incorrect API KEY has been specified.', 'aibuddy-openai-chatgpt' ); ?>
 							</div>
 						</div>
 					</div>

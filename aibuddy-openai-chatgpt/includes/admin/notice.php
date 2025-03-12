@@ -1,3 +1,6 @@
+<?php
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 <div class="ai-buddy-notice notice">
     <div class="ai-buddy-notice-img">
         <img src="<?php echo esc_url(AI_BUDDY_FILES_PATH . 'assets/images/notice-logo.png'); ?>" alt="Notice"

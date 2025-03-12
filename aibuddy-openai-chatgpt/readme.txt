@@ -1,4 +1,4 @@
-=== AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o Best AI WordPress Plugin ===  
+=== AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o ==  
 Contributors: ahmedgeek
 Donate link: https://aibudwp.com/  
 Tags: AI, ChatGPT, content generator, chatbot, Gemini
@@ -7,11 +7,11 @@ Author: AI Bud
 Requires at least: 4.6  
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.7.3
+Stable tag: 1.8.1
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
   
-AI Bud is the Best WordPress AI Plugin. AI Content & Image Generation, AI ChatBot, ChatGPT, OpenAI, Perplexity, Gemini, GPT-4o, LLAMA, Mistral    
+AI Bud an AI Content & Image Generation, AI ChatBot, ChatGPT, OpenAI, Perplexity, Gemini, GPT-4o, LLAMA, Mistral    
   
 == Description ==  
   
@@ -19,9 +19,9 @@ AI Bud is a perfect WordPress AI plugin for all kind of AI generated content, co
 
 [youtube https://youtu.be/7u44-t-Irfw]  
   
-Whether you need to create compelling blog posts with SEO-titles, product descriptions, visually stunning images, or text proofreading, text translation to 30+ languages, AiBud WP WordPress plugin has got you covered. Say goodbye to the hassle of creating content from scratch and hello to an AI-powered, user-friendly tool that streamlines your content creation process.
+Whether you need to create compelling blog posts with SEO-titles, product descriptions, visually stunning images, or text proofreading, text translation to 30+ languages, AI Bud has got you covered. Say goodbye to the hassle of creating content from scratch and hello to an AI-powered, user-friendly tool that streamlines your content creation process.
   
-Do you want to check AIBud WP Pro Version 👉 [https://aibudwp.com/](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
+Do you want to check AI Bud WP Pro Version 👉 [https://aibudwp.com/](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
     
 Want to learn more? Check our documentation 👉 [https://aibudwp.com/docs/](https://aibudwp.com/docs/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
     
@@ -99,7 +99,7 @@ One of the key features of the Playground module is that users can control the *
   
 ## A PACK OF INTEGRATIONS  
   
-[AiBud WP](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page) supports the following tools and technologies:  
+[AI Bud WP](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page) supports the following tools and technologies:  
   
 * OpenAI - GPT (Generative Pre-trained Transformer 4) is the number one largest and most advanced language model in the world.  
 * Gemini Pro - Google provides great AI model named Gemini, the service old name was Google Bard.
@@ -128,10 +128,22 @@ You can use the following AI models in AI Bud WordPress Plugin:
 * Mistral
 * Mixtral
 * Perplexity
-  
+
 ## OFFICIAL DOCUMENTATION AND LANDING PAGE  
   
-For getting help, visit AiBud WP [documentation](https://aibudwp.com/docs/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=documentaion). We also have the [official page](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page).
+For getting help, visit AI Bud WP [documentation](https://aibudwp.com/docs/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=documentaion). We also have the [official page](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page).
+
+== External services ==
+
+AI Bud relies on external APIs from Claude, Google, OpenAI, and OpenRouter to provide its AI-powered features. These integrations allow users to generate AI-based content, and image generation efficiently. 
+
+We only make API requests when the user initiates an action, such as generating content, or creating an image. AI Bud does not send any data to these external providers in the background or without explicit user interaction. This ensures user data privacy and control over AI-related tasks.
+
+### Terms of Use and Privacy Policies:
+- **OpenAI**: [Terms of Use](https://openai.com/terms) | [Privacy Policy](https://openai.com/privacy)
+- **Google Gemini**: [Terms of Use](https://policies.google.com/terms) | [Privacy Policy](https://policies.google.com/privacy)
+- **Claude (Anthropic)**: [Terms of Use](https://www.anthropic.com/terms) | [Privacy Policy](https://www.anthropic.com/privacy)
+- **OpenRouter**: [Terms of Use](https://openrouter.ai/terms) | [Privacy Policy](https://openrouter.ai/privacy)
 
 == Frequently Asked Questions ==
 
@@ -178,10 +190,17 @@ Installation is easy - all you need to do is to follow a few steps:
 1. Install the plugin.  
 2. Activate it.  
 3. Right after activation you will see the popup where you should copy and paste your OpenAI **API Secret Key**. You can find or generate your Secret API key in the **User** settings on your OpenAI account.  
-4. That’s it! Now you can play and use AiBud WP.  
+4. That’s it! Now you can play and use AI Bud WP.  
   
   
 == Changelog ==
+= 1.8.1 =
+* Fix: Plugin hardening 
+
+= 1.8.0 =
+* Multple security fixes.
+* Plugin stability improvements.
+
 = 1.7.3 =
 * Fix: Updated Freemius SDK.
 

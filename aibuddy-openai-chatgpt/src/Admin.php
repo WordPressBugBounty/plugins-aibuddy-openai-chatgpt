@@ -23,7 +23,7 @@ class Admin {
 			array(
 				'settings' =>
 					sprintf(
-						__( '<a href="admin.php?page=%s_settings">Settings</a>', $plugin_info['TextDomain'] ), // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralDomain
+						__( '<a href="admin.php?page=%s_settings">Settings</a>', 'aibuddy-openai-chatgpt'), 
 						$slug,
 					),
 			),

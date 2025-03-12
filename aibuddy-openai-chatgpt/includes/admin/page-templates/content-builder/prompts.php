@@ -1,3 +1,6 @@
+<?php
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 <div class="ai-buddy-modal-window model-prompts">
 	<div class="ai-buddy-modal-window-wrapper">
 		<div class="modal-header">

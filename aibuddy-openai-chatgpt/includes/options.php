@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $chatbot_params = array(
 	'id'                  => '',
 	'mode'                => 'chat',

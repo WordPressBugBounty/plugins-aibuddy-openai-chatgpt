@@ -1,0 +1,9 @@
+@mixin hover-active-focus {
+    &:focus,
+    &:hover,
+    &:active,
+    &:focus-visible {
+        outline: none;
+        @content;
+    }
+}

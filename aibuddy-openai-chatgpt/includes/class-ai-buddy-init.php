@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class AI_Buddy_Init {
 
 	public function __construct() {
@@ -53,14 +57,6 @@ class AI_Buddy_Init {
 			'ai_buddy_playground',
 			array( $this, 'ai_buddy_playground' )
 		);
-        add_submenu_page(
-            'ai_buddy_content_builder',
-            esc_html__( 'Comment Generator', 'aibuddy-openai-chatgpt' ),
-            esc_html__( 'Comment Generator', 'aibuddy-openai-chatgpt' ),
-            'manage_options',
-            'ai_buddy_comment_generator',
-            array( $this, 'ai_buddy_comment_generator' )
-        );
 		add_submenu_page(
 			'ai_buddy_content_builder',
 			esc_html__( 'Settings', 'aibuddy-openai-chatgpt' ),
@@ -88,11 +84,6 @@ class AI_Buddy_Init {
 		require 'admin/navigation.php';
 		require 'admin/page-templates/image-generator/image-generator.php';
 	}
-
-    public function ai_buddy_comment_generator() {
-        require 'admin/navigation.php';
-        require 'admin/page-templates/comment-generator/settings.php';
-    }
 
 	/**
 	 * Connecting files in the admin panel

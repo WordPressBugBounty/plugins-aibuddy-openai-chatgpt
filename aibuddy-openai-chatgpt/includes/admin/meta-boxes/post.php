@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $post;
 $general_setting = get_option( 'ai_buddy', array() );
 if ( isset( $general_setting['modules']['titles'] ) && $general_setting['modules']['titles'] ) :
@@ -45,7 +46,7 @@ if ( isset( $general_setting['modules']['images'] ) && $general_setting['modules
 							<button class="ai-buddy-button right-alignment post-excerpts-generate" disabled><?php echo esc_html__( 'Apply', 'aibuddy-openai-chatgpt' ); ?></button>
 							<button class="ai-buddy-button right-alignment post-image-generate" disabled><span class="aibuddy-loader button-loader"></span> <?php echo esc_html__( 'Apply', 'aibuddy-openai-chatgpt' ); ?></button>
 							<button class="ai-buddy-button right-alignment button-abort-generate post-image-generate-done"><?php echo esc_html__( 'Done', 'aibuddy-openai-chatgpt' ); ?></button>
-							<a href="<?php echo esc_url_raw( admin_url( 'admin.php?page=ai_buddy_content_builder' ) );//phpcs:ignore ?>" class="ai-buddy-button right-alignment generate-new-post"><?php echo esc_html__( 'Generate new post', 'aibuddy-openai-chatgpt' ); ?></a>
+							<a href="<?php echo esc_url( admin_url( 'admin.php?page=ai_buddy_content_builder' ) );//phpcs:ignore ?>" class="ai-buddy-button right-alignment generate-new-post"><?php echo esc_html__( 'Generate new post', 'aibuddy-openai-chatgpt' ); ?></a>
 						</div>
 					</div>
 				</div>
@@ -53,9 +54,9 @@ if ( isset( $general_setting['modules']['images'] ) && $general_setting['modules
 					<div class="section-content">
 						<div class="response-message align-center">
 							<span class="aibuddy-close-outline response-message-icon"></span>
-							<div class="section-subtitle"><?php echo esc_html__( 'An error occurred', 'chatgpt-openai-wordpress-plugin' ); ?></div>
+							<div class="section-subtitle"><?php echo esc_html__( 'An error occurred', 'aibuddy-openai-chatgpt' ); ?></div>
 							<div class="section-description">
-								<?php echo esc_html__( 'There may be issues with the server or internet connection, or it\'s possible that an incorrect API KEY has been specified.', 'chatgpt-openai-wordpress-plugin' ); ?>
+								<?php echo esc_html__( 'There may be issues with the server or internet connection, or it\'s possible that an incorrect API KEY has been specified.', 'aibuddy-openai-chatgpt' ); ?>
 							</div>
 						</div>
 					</div>

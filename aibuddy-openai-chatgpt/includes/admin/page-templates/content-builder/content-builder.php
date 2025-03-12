@@ -1,3 +1,6 @@
+<?php
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 <form id="topic-form">
 	<div class="ai-buddy-container">
 		<div class="ai-buddy-container-row">

@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+// Exit if accessed directly
 /** @var \AiBuddy\Plugin $ai_buddy_plugin */
 use AiBuddy\Chatbot;
 use AiBuddy\Rest;

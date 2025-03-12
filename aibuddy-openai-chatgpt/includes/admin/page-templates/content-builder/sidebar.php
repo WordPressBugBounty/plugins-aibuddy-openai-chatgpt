@@ -1,3 +1,11 @@
+<?php
+
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+// Exit if accessed directly
+?>
+
 <div class="section ai-buddy-accordion-section">
     <div class="section-title active"><?php 
 echo esc_html__( 'Model Options', 'aibuddy-openai-chatgpt' );
@@ -304,7 +312,7 @@ echo esc_html__( 'PRO', 'aibuddy-openai-chatgpt' );
     
                         <div class="ai-buddy-blocked-input">
                             <a href="<?php 
-echo esc_url_raw( admin_url( 'admin.php?page=ai_buddy_content_builder-pricing' ) );
+echo esc_url( admin_url( 'admin.php?page=ai_buddy_content_builder-pricing' ) );
 //phpcs:ignore
 ?>" target="_blank"></a>
                             <input type="checkbox" class="checkbox" id="ai-buddy-yoast-integration" disabled readonly />
@@ -331,7 +339,7 @@ echo esc_html__( 'PRO', 'aibuddy-openai-chatgpt' );
 
                     <div class="ai-buddy-blocked-input">
                         <a href="<?php 
-echo esc_url_raw( admin_url( 'admin.php?page=ai_buddy_content_builder-pricing' ) );
+echo esc_url( admin_url( 'admin.php?page=ai_buddy_content_builder-pricing' ) );
 //phpcs:ignore
 ?>" target="_blank"></a>
                         <input type="checkbox" class="checkbox" id="ai-buddy-rank-math-integration" disabled readonly />

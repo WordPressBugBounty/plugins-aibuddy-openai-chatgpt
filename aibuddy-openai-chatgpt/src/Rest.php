@@ -750,7 +750,7 @@ class Rest {
 				if ( file_exists( $new_file ) ) {
 					$new_file = $dir . '/' . uniqid() . '-' . $filename;
 				}
-				rename( $file, $new_file );
+                $this->move_file( $file, $new_file );
 				update_attached_file( $attachment_id, $new_file );
 			}
 
@@ -973,5 +973,19 @@ class Rest {
         }
 
         return rest_ensure_response($tag_ids);
+    }
+
+    /**
+     * Move file
+     *
+     * @param string $file
+     * @param string $new_file
+     */
+    private function move_file($file, $new_file) {
+        require_once ( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
+        require_once ( ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php' );
+
+        $filesystem = new \WP_Filesystem_Direct(null);
+        $filesystem->move($file, $new_file);
     }
 }

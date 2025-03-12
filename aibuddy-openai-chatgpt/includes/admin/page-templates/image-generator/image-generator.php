@@ -1,3 +1,6 @@
+<?php
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 <div class="ai-buddy-container ai-buddy-image-generator">
 	<div class="ai-buddy-container-row">
 		<div class="ai-buddy-container-content">
@@ -29,7 +32,7 @@
 									<button href="#" class="image-generate-button" disabled>
 										<i class="aibuddy-loader"></i><?php echo esc_html__( 'Generate', 'aibuddy-openai-chatgpt' ); ?>
 									</button>
-									<button class="ai-buddy-button outline button-images-abort"><?php echo esc_html__( 'Cancel', 'chatgpt-openai-wordpress-plugin' ); ?></button>
+									<button class="ai-buddy-button outline button-images-abort"><?php echo esc_html__( 'Cancel', 'aibuddy-openai-chatgpt' ); ?></button>
 								</div>
 							</div>
 						</form>

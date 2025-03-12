@@ -1,3 +1,7 @@
+<?php
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
+
 <div class="section">
 	<div class="section-title"><?php echo esc_html__( 'Model options', 'aibuddy-openai-chatgpt' ); ?></div>
 	<div class="section-content">

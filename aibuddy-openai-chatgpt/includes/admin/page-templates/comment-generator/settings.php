@@ -1,3 +1,9 @@
+<?php
+
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+?>
 
 <form id="ai-buddy-comment-helper">
     <div class="ai-buddy-container">
@@ -37,7 +43,7 @@ echo esc_html__( ' Upgrade to Pro for immediate access and elevate AI experience
                         </div>
                         <div class="api-key-settings-button">
                             <a href="<?php 
-echo esc_url_raw( admin_url( 'admin.php?page=ai_buddy_content_builder-pricing' ) );
+echo esc_url( admin_url( 'admin.php?page=ai_buddy_content_builder-pricing' ) );
 //phpcs:ignore
 ?>" class="ai-buddy-button"><?php 
 echo esc_html__( 'Upgrade to Pro', 'aibuddy-openai-chatgpt' );

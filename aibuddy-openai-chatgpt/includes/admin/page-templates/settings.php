@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 $general_setting          = get_option( 'ai_buddy', array() );
 $usage_setting            = get_option( 'ai_buddy_openai_usage', array() );
 $usage_date               = array_key_first( $usage_setting );
@@ -38,7 +40,7 @@ if (isset($general_setting['modules']['woocommerce'])) {
                     <div class="section-content content-params">
                         <div class="section-field">
                             <div class="section-subtitle"><span><?php echo esc_html__( 'Open AI API Key', 'aibuddy-openai-chatgpt' ); ?></span></div>
-                            <input type="text" id="ai_buddy-api-key" value="<?php echo isset($general_setting['openai']['apikey']) ? esc_attr( $general_setting['openai']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
+                            <input type="text" id="ai_buddy-api-key" value="<?php echo esc_attr( $general_setting['openai']['apikey'] ?? '' ); ?>" placeholder="<?php echo esc_attr__('Enter API Key', 'aibuddy-openai-chatgpt'); ?>" />
                         </div>
                         <div class="section-field-information">
                             <span class="aibuddy-information"></span>
@@ -119,9 +121,12 @@ if (isset($general_setting['modules']['woocommerce'])) {
                     <div class="section-content content-params">
                         <div class="section-field">
                             <div class="check-box">
-                                <input type="checkbox" class="checkbox" value="<?php echo esc_attr( $general_setting['modules']['titles'] ); ?>" id="post-title-suggestions" <?php echo esc_attr( $post_title_suggestions ); ?> />
+                                <input type="checkbox" class="checkbox" 
+                                       value="<?php echo esc_attr($general_setting['modules']['titles'] ?? ''); ?>" 
+                                       id="post-title-suggestions" 
+                                       <?php echo esc_attr($post_title_suggestions ? 'checked' : ''); ?> />
                                 <label for="post-title-suggestions"></label>
-                                <span class="checkbox-text"><?php echo esc_html__( 'Title Suggestions', 'aibuddy-openai-chatgpt' ); ?></span>
+                                <span class="checkbox-text"><?php echo esc_html__('Title Suggestions', 'aibuddy-openai-chatgpt'); ?></span>
                                 <div class="section-field-information">
                                     <span class="aibuddy-information"></span> <?php echo esc_html__( 'Provide several headings that are relevant to your content.', 'aibuddy-openai-chatgpt' ); ?>
                                 </div>
@@ -195,8 +200,8 @@ if (isset($general_setting['modules']['woocommerce'])) {
 									<input type="hidden" id="total-tokens-data" value="<?php echo esc_attr( $token_value['total_tokens'] ); ?>" />
 										<?php
 									endif;
-									echo isset( $token_value['total'] ) ? esc_attr( $token_value['total'] ) . ' images (0.02$)' : '';
-									echo isset( $token_value['total_tokens'] ) ? esc_attr( $token_value['total_tokens'] ) . ' tokens (0.02$)' : '';
+									echo  esc_attr( isset( $token_value['total'] ) ? $token_value['total'] . ' images (0.02$)' : '' );
+									echo esc_attr( isset( $token_value['total_tokens'] ) ?  $token_value['total_tokens'] . ' tokens (0.02$)' : '');
 									?>
 								</div>
 							</div>

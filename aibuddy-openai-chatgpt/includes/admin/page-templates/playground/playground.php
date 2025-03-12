@@ -1,3 +1,6 @@
+<?php
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 <div class="ai-buddy-container playground-section">
 	<div class="ai-buddy-container-row">
 		<div class="ai-buddy-container-content">

@@ -1,5 +1,7 @@
 <?php
 
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
+
 $options_model = [
     'OpenAI' => [
         'gpt-4o' => esc_html__('GPT 4o', 'aibuddy-openai-chatgpt'),
@@ -153,40 +155,57 @@ $options_model = [
 
 $fse_default_model = isset($general_setting['fse']['model']) ? $general_setting['fse']['model'] : false;
 $default_model = isset($default_model) ? $default_model : $fse_default_model;
-$general_setting = get_option( 'ai_buddy', array() );
-foreach ( $options_model as $brand => $models ) {
-    ?>
-    <optgroup label="<?php echo esc_html($brand) ?>">
-    <?php
-    foreach ($models as $model => $text) {
-        switch ($brand) {
-            case 'OpenAI':
-                ?>
-                <option value="<?php echo esc_attr( $model ); ?>" <?php echo $default_model === $model ? 'selected' : '' ?>><?php echo esc_attr( $text ); ?></option>
+$general_setting = get_option('ai_buddy', array());
+foreach ($options_model as $brand => $models) {
+?>
+    <optgroup label="<?php echo esc_attr($brand); ?>">
+        <?php
+        foreach ($models as $model => $text) {
+            switch ($brand) {
+                case 'OpenAI':
+        ?>
+                    <option value="<?php echo esc_attr($model); ?>" 
+                            <?php echo esc_attr($default_model === $model ? 'selected' : ''); ?>>
+                        <?php echo esc_html($text); ?>
+                    </option>
                 <?php
-                break;
-            case 'Google':
-                $isGeminiExist = isset( $general_setting['googleai']['apikey'] ) && !empty($general_setting['googleai']['apikey']) ? true : false;
+                    break;
+                case 'Google':
+                    $isGeminiExist = isset($general_setting['googleai']['apikey']) && !empty($general_setting['googleai']['apikey']);
                 ?>
-                <option value="<?php echo esc_attr( $model ); ?>" <?php echo $isGeminiExist ? '' : 'disabled' ?> <?php echo $default_model === $model ? 'selected' : '' ?>><?php echo esc_attr( $text ); ?><?php echo ($isGeminiExist ? '' : __(' (API Key not entered)', 'aibuddy-openai-chatgpt')); ?></option>
-                
+                    <option value="<?php echo esc_attr($model); ?>" 
+                            <?php echo esc_attr($isGeminiExist ? '' : 'disabled'); ?>
+                            <?php echo esc_attr($default_model === $model ? 'selected' : ''); ?>>
+                        <?php echo esc_html($text); ?>
+                        <?php echo $isGeminiExist ? '' : esc_html__(' (API Key not entered)', 'aibuddy-openai-chatgpt'); ?>
+                    </option>
                 <?php
-                break;
-            case 'Claude':
-                $isClaudExist = isset( $general_setting['claude']['apikey'] ) && !empty($general_setting['claude']['apikey']) ? true : false;
+                    break;
+                case 'Claude':
+                    $isClaudExist = isset($general_setting['claude']['apikey']) && !empty($general_setting['claude']['apikey']);
                 ?>
-                <option value="<?php echo esc_attr( $model ); ?>" <?php echo $isClaudExist ? '' : 'disabled' ?> <?php echo $default_model === $model ? 'selected' : '' ?>><?php echo esc_attr( $text ); ?><?php echo ($isClaudExist ? '' : __(' (API Key not entered)', 'aibuddy-openai-chatgpt')); ?></option>
+                    <option value="<?php echo esc_attr($model); ?>" 
+                            <?php echo esc_attr($isClaudExist ? '' : 'disabled'); ?>
+                            <?php echo esc_attr($default_model === $model ? 'selected' : ''); ?>>
+                        <?php echo esc_html($text); ?>
+                        <?php echo $isClaudExist ? '' : esc_html__(' (API Key not entered)', 'aibuddy-openai-chatgpt'); ?>
+                    </option>
                 <?php
-                break;
-            case 'OpenRouter':
-                $isClaudExist = isset( $general_setting['openrouter']['apikey'] ) && !empty($general_setting['openrouter']['apikey']) ? true : false;
+                    break;
+                case 'OpenRouter':
+                    $isOpenRouterExist = isset($general_setting['openrouter']['apikey']) && !empty($general_setting['openrouter']['apikey']);
                 ?>
-                <option value="<?php echo esc_attr( $model ); ?>" <?php echo $isClaudExist ? '' : 'disabled' ?> <?php echo $default_model === $model ? 'selected' : '' ?>><?php echo esc_attr( $text ); ?><?php echo ($isClaudExist ? '' : __(' (API Key not entered)', 'aibuddy-openai-chatgpt')); ?></option>
-                <?php
-                break;
+                    <option value="<?php echo esc_attr($model); ?>" 
+                            <?php echo esc_attr($isOpenRouterExist ? '' : 'disabled'); ?>
+                            <?php echo esc_attr($default_model === $model ? 'selected' : ''); ?>>
+                        <?php echo esc_html($text); ?>
+                        <?php echo $isOpenRouterExist ? '' : esc_html__(' (API Key not entered)', 'aibuddy-openai-chatgpt'); ?>
+                    </option>
+        <?php
+                    break;
+            }
         }
-    }
-    ?>
+        ?>
     </optgroup>
-    <?php
-} 
+<?php
+}

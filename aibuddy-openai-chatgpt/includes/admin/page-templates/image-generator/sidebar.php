@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 $general_setting = get_option( 'ai_buddy', array() );
 
 $dropdown_images = array(
