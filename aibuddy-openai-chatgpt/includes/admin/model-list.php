@@ -12,7 +12,8 @@ $options_model = [
         'gpt-3.5-turbo-instruct' => esc_html__('GPT 3.5 Turbo Instruct', 'aibuddy-openai-chatgpt'),
     ],
     'Google' => [
-        'gemini-pro' => esc_html__('Gemini 1.0 Pro', 'aibuddy-openai-chatgpt'),
+        'gemini-2.5-pro-preview-03-25' => esc_html__('Gemini 2.5 Pro Preview', 'aibuddy-openai-chatgpt'),
+        'gemini-2.0-flash' => esc_html__('Gemini 2.0 Flash', 'aibuddy-openai-chatgpt'),
         'gemini-1.5-flash' => esc_html__('Gemini 1.5 Flash', 'aibuddy-openai-chatgpt'),
         'gemini-1.5-pro' => esc_html__('Gemini 1.5 Pro', 'aibuddy-openai-chatgpt'),
     ],

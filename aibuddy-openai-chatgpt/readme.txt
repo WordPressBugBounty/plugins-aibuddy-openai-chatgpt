@@ -1,5 +1,5 @@
 === AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o ==  
-Contributors: ahmedgeek
+Contributors: wpcenter, cagdasdag, orkunaybek
 Donate link: https://aibudwp.com/  
 Tags: AI, ChatGPT, content generator, chatbot, Gemini
 Author URI: https://aibudwp.com/  
@@ -7,7 +7,7 @@ Author: AI Bud
 Requires at least: 4.6  
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
   
@@ -194,6 +194,10 @@ Installation is easy - all you need to do is to follow a few steps:
   
   
 == Changelog ==
+= 1.8.2 =
+* Update: Google AI Model List Updated and 2.0 2.5 models added to list
+* Fix: Google AI Key Saving Issue
+
 = 1.8.1 =
 * Fix: Plugin hardening 
 

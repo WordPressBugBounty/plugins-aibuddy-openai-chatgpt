@@ -43,7 +43,7 @@ class AiContentGenerator {
                         !is_string($data) ? [$data['choices'][0]['message']['content']] : [$data],
                         !is_string($data) ? $data : [$data],
                     );
-                } elseif (in_array($query->model, ['gemini-pro', 'gemini-1.5-flash', 'gemini-1.5-pro'])) {
+                } elseif (in_array($query->model, ['gemini-1.5-pro', 'gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-2.5-pro-preview-03-25'])) {
                     $data = $this->googleAi->create_completions($query->to_request_body(), $query->model);
 
                     $response = new Response(

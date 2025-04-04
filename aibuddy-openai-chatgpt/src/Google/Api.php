@@ -114,7 +114,7 @@ class Api {
 
         try {
 
-            $response = wp_remote_request( self::GoogleAI . 'gemini-pro:generateContent?key=' . $api_key , $options );
+            $response = wp_remote_request( self::GoogleAI . 'gemini-1.5-flash:generateContent?key=' . $api_key , $options );
 
             if ( is_wp_error( $response ) ) {
                 throw new Exception( $response->get_error_message() );
