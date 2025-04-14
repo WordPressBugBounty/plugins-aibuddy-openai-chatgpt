@@ -7,7 +7,7 @@ Author: AI Bud
 Requires at least: 4.6  
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.8.3
+Stable tag: 1.8.4
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
   
@@ -114,16 +114,19 @@ One of the key features of the Playground module is that users can control the *
 
 ## MODELS  
 You can use the following AI models in AI Bud WordPress Plugin:
-* GPT-3.5 Turbo
-* GPT-4
-* GPT-4o
-* GPT-4 Vision
-* Google Gemini 1.5 Pro
-* Google Gemini 1.5 Flash
-* Google Gemini Pro
-* Claude 3 Opus
-* Claude 3 Sonnet
-* Claude 3 Haiku
+* GPT 4o
+* GPT 4 Turbo
+* GPT 4
+* GPT 3.5 Turbo 16k
+* GPT 3.5 Turbo
+* Gemini 2.5 Pro Preview
+* Gemini 2.0 Flash
+* Gemini 1.5 Flash
+* Gemini 1.5 Pro
+* Claude 3.7 Sonnet
+* Claude 3.5 Sonnet v2
+* Claude 3.5 Haiku
+* Claude 3.5 Sonnet
 * Llama
 * Mistral
 * Mixtral
@@ -194,6 +197,11 @@ Installation is easy - all you need to do is to follow a few steps:
   
   
 == Changelog ==
+= 1.8.3 =
+* Improvement: Keys masked instead of plain text
+* Improvement: Claude Models Updated
+* Fix: Showing Claude API connection message directly from API
+
 = 1.8.3 =
 * Fix: Chatbot and fine tuning issues fixed
 

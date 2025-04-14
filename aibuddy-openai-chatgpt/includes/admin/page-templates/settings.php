@@ -40,7 +40,7 @@ if (isset($general_setting['modules']['woocommerce'])) {
                     <div class="section-content content-params">
                         <div class="section-field">
                             <div class="section-subtitle"><span><?php echo esc_html__( 'Open AI API Key', 'aibuddy-openai-chatgpt' ); ?></span></div>
-                            <input type="text" id="ai_buddy-api-key" value="<?php echo esc_attr( $general_setting['openai']['apikey'] ?? '' ); ?>" placeholder="<?php echo esc_attr__('Enter API Key', 'aibuddy-openai-chatgpt'); ?>" />
+                            <input type="password" id="ai_buddy-api-key" value="<?php echo esc_attr( $general_setting['openai']['apikey'] ?? '' ); ?>" placeholder="<?php echo esc_attr__('Enter API Key', 'aibuddy-openai-chatgpt'); ?>" />
                         </div>
                         <div class="section-field-information">
                             <span class="aibuddy-information"></span>
@@ -56,7 +56,7 @@ if (isset($general_setting['modules']['woocommerce'])) {
 
                         <div class="section-field">
                             <div class="section-subtitle"><span><?php echo esc_html__( 'Google AI API Key', 'aibuddy-openai-chatgpt' ); ?></span></div>
-                            <input type="text" id="ai_buddy-google-api-key" value="<?php echo isset($general_setting['googleai']['apikey']) ? esc_attr( $general_setting['googleai']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
+                            <input type="password" id="ai_buddy-google-api-key" value="<?php echo isset($general_setting['googleai']['apikey']) ? esc_attr( $general_setting['googleai']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
                         </div>
                         <div class="section-field-information">
                             <span class="aibuddy-information"></span>
@@ -72,7 +72,7 @@ if (isset($general_setting['modules']['woocommerce'])) {
 
                         <div class="section-field">
                             <div class="section-subtitle"><span><?php echo esc_html__( 'Claude AI API Key', 'aibuddy-openai-chatgpt' ); ?></span></div>
-                            <input type="text" id="ai_buddy-claude-api-key" value="<?php echo isset($general_setting['claude']['apikey']) ? esc_attr( $general_setting['claude']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
+                            <input type="password" id="ai_buddy-claude-api-key" value="<?php echo isset($general_setting['claude']['apikey']) ? esc_attr( $general_setting['claude']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
                         </div>
                         <div class="section-field-information">
                             <span class="aibuddy-information"></span>
@@ -88,7 +88,7 @@ if (isset($general_setting['modules']['woocommerce'])) {
 
                         <div class="section-field">
                             <div class="section-subtitle"><span><?php echo esc_html__( 'OpenRouter API Key', 'aibuddy-openai-chatgpt' ); ?></span></div>
-                            <input type="text" id="ai_buddy-open-router-api-key" value="<?php echo isset($general_setting['openrouter']['apikey']) ? esc_attr( $general_setting['openrouter']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
+                            <input type="password" id="ai_buddy-open-router-api-key" value="<?php echo isset($general_setting['openrouter']['apikey']) ? esc_attr( $general_setting['openrouter']['apikey'] ) : ''; ?>" placeholder="Enter API Key" />
                         </div>
                         <div class="section-field-information">
                             <span class="aibuddy-information"></span>

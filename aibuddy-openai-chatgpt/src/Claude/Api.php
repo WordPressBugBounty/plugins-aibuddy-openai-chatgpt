@@ -104,7 +104,7 @@ class Api {
                     ]
                 ],
                 'max_tokens' => 10,
-                'model' => 'claude-3-opus-20240229'
+                'model' => 'claude-3-7-sonnet-latest'
             ]),
         );
 
@@ -121,9 +121,8 @@ class Api {
             if ($response_code === 200) {
                 return true;
             }
-            elseif ($response_code === 400 &&
-                $response_body['error']['message']=== __( 'Your credit balance is too low to access the Claude API. Please go to Plans & Billing to upgrade or purchase credits.' , 'aibuddy-openai-chatgpt' )) {
-                throw new Exception( __( 'Your credit balance is too low to access the Claude API. Please go to Plans & Billing to upgrade or purchase credits.' , 'aibuddy-openai-chatgpt' ));
+            elseif (isset($response_body['error']['message'])) {
+                throw new Exception( $response_body['error']['message']);
             }
             else {
                 throw new Exception( __( 'We encountered a problem registering your ClaudeAI API key. Please check your API Key.' , 'aibuddy-openai-chatgpt' ));

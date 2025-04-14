@@ -18,9 +18,10 @@ $options_model = [
         'gemini-1.5-pro' => esc_html__('Gemini 1.5 Pro', 'aibuddy-openai-chatgpt'),
     ],
     'Claude' => [
-        'claude-3-opus-20240229' => esc_html__('Claude 3 Opus', 'aibuddy-openai-chatgpt'),
-        'claude-3-sonnet-20240229' => esc_html__('Claude 3 Sonnet', 'aibuddy-openai-chatgpt'),
-        'claude-3-haiku-20240307' => esc_html__('Claude 3 Haiku', 'aibuddy-openai-chatgpt'),
+        'claude-3-7-sonnet-latest' => esc_html__('Claude 3.7 Sonnet', 'aibuddy-openai-chatgpt'),
+        'claude-3-5-sonnet-latest' => esc_html__('Claude 3.5 Sonnet v2', 'aibuddy-openai-chatgpt'),
+        'claude-3-5-haiku-latest' => esc_html__('Claude 3.5 Haiku', 'aibuddy-openai-chatgpt'),
+        'claude-3-5-sonnet-20240620' => esc_html__('Claude 3.5 Sonnet', 'aibuddy-openai-chatgpt'),
     ],
     'OpenRouter' => [
         'anthropic/claude-1' => esc_html__('Anthropic: Claude v1', 'aibuddy-openai-chatgpt'),

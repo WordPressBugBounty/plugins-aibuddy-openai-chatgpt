@@ -9,7 +9,7 @@
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: aibuddy-openai-chatgpt
- * Version: 1.8.3
+ * Version: 1.8.4
  *
  */
 if ( !defined( 'ABSPATH' ) ) {
@@ -50,7 +50,7 @@ if ( function_exists( 'aibud_fs' ) ) {
         do_action( 'aibud_fs_loaded' );
     }
     require_once __DIR__ . '/vendor/autoload.php';
-    define( 'AI_BUDDY_VERSION', '1.8.3' );
+    define( 'AI_BUDDY_VERSION', '1.8.4' );
     define( 'AI_BUDDY_PATH', __DIR__ );
     define( 'AI_BUDDY_FILE', __FILE__ );
     define( 'AI_BUDDY_SLUG', 'ai_buddy' );

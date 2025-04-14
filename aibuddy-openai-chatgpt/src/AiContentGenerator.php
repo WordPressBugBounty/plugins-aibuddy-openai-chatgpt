@@ -53,7 +53,7 @@ class AiContentGenerator {
                     );
 
                     return $response;
-                } elseif ($query->model === 'claude-3-opus-20240229' || $query->model === 'claude-3-sonnet-20240229' || $query->model === 'claude-3-haiku-20240307') {
+                } elseif ($query->model === 'claude-3-7-sonnet-latest' || $query->model === 'claude-3-5-sonnet-latest' || $query->model === 'claude-3-5-haiku-latest' || $query->model === 'claude-3-5-sonnet' || $query->model === 'claude-3-5-sonnet-20240620') {
                     $data = $this->claude->create_completions($query->to_request_body());
 
                     $response = new Response(
