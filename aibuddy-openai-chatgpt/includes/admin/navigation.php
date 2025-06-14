@@ -110,7 +110,7 @@ echo esc_html__( 'Open AI status', 'aibuddy-openai-chatgpt' );
                 <li><a href="https://aibudwp.com/docs" target="_blank" rel="nofollow"><span class="aibuddy-documentation"></span> <?php 
 echo esc_html__( 'Documentation', 'aibuddy-openai-chatgpt' );
 ?></a></li>
-                <li><a href="https://aibudwp.com/contact-us/" target="_blank" rel="nofollow"><span class="aibuddy-support"></span> <?php 
+                <li><a href="https://aibudwp.com/contact/" target="_blank" rel="nofollow"><span class="aibuddy-support"></span> <?php 
 echo esc_html__( 'Support', 'aibuddy-openai-chatgpt' );
 ?></a></li>
                 <?php 

@@ -30,7 +30,7 @@
 		<p class="feedback-review-text" style="display: none;"></p>
 		<div class="feedback-extra">
 			<textarea id="feedback-review" rows="5" placeholder="<?php echo esc_html__( 'Please enter your Review...', 'aibuddy-openai-chatgpt' ); ?>"></textarea>
-			<small><?php echo esc_html__( 'Found a bug in the plugin?', 'aibuddy-openai-chatgpt' ); ?> <a href="<?php echo esc_url( 'https://aibudwp.com/contact-us/' ); ?>" target="_blank" rel="nofollow"><?php echo esc_html__( 'Click here', 'aibuddy-openai-chatgpt' ); ?></a>
+			<small><?php echo esc_html__( 'Found a bug in the plugin?', 'aibuddy-openai-chatgpt' ); ?> <a href="<?php echo esc_url( 'https://aibudwp.com/contact/' ); ?>" target="_blank" rel="nofollow"><?php echo esc_html__( 'Click here', 'aibuddy-openai-chatgpt' ); ?></a>
 				<?php echo esc_html__( 'to report it.', 'aibuddy-openai-chatgpt' ); ?></small>
 		</div>
 		<a href="https://wordpress.org/support/plugin/aibuddy-openai-chatgpt/reviews/?filter=5#new-post" class="feedback-submit" target="_blank" rel="nofollow">

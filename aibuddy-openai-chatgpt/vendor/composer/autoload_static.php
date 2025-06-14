@@ -4,11 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9e96c560d301817190a91547050e4d8a
+class ComposerStaticInit70b25a7df0441522eba0af02f9c5cb1f
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '8d50dc88e56bace65e1e72f6017983ed' => __DIR__ . '/..' . '/freemius/wordpress-sdk/start.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '61ba3e92ef91a7a0f1cc260ebd9290e4' => __DIR__ . '/..' . '/openai-php/client/src/OpenAI.php',
     );
@@ -97,10 +98,10 @@ class ComposerStaticInit9e96c560d301817190a91547050e4d8a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9e96c560d301817190a91547050e4d8a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9e96c560d301817190a91547050e4d8a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9e96c560d301817190a91547050e4d8a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit9e96c560d301817190a91547050e4d8a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit70b25a7df0441522eba0af02f9c5cb1f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit70b25a7df0441522eba0af02f9c5cb1f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit70b25a7df0441522eba0af02f9c5cb1f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit70b25a7df0441522eba0af02f9c5cb1f::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -36,14 +36,17 @@ class AiContentGenerator {
 	public function exec( Query $query ) {
 		try {
 			if ( $query instanceof TextQuery ) {
-                if (str_contains($query->model, 'ft:gpt-3.5') || $query->model === 'gpt-3.5-turbo-16k' || $query->model === 'gpt-3.5-turbo' || $query->model === 'gpt-3.5-turbo-instruct' || $query->model === 'gpt-4' || $query->model === 'gpt-4-turbo' || $query->model === 'gpt-4o'  ) {
+			    $models_list = new Models();
+                $models = $models_list->get_models_list();
+                
+                if (array_key_exists($query->model, $models['OpenAI'])) {
                     $data = $this->api->create_completions($query->to_request_body());
                     $response = new Response(
                         $query,
                         !is_string($data) ? [$data['choices'][0]['message']['content']] : [$data],
                         !is_string($data) ? $data : [$data],
                     );
-                } elseif (in_array($query->model, ['gemini-1.5-pro', 'gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-2.5-pro-preview-03-25'])) {
+                } elseif (array_key_exists($query->model, $models['Google'])) {
                     $data = $this->googleAi->create_completions($query->to_request_body(), $query->model);
 
                     $response = new Response(
@@ -53,7 +56,7 @@ class AiContentGenerator {
                     );
 
                     return $response;
-                } elseif ($query->model === 'claude-3-7-sonnet-latest' || $query->model === 'claude-3-5-sonnet-latest' || $query->model === 'claude-3-5-haiku-latest' || $query->model === 'claude-3-5-sonnet' || $query->model === 'claude-3-5-sonnet-20240620') {
+                } elseif (array_key_exists($query->model, $models['Claude'])) {
                     $data = $this->claude->create_completions($query->to_request_body());
 
                     $response = new Response(
@@ -75,11 +78,29 @@ class AiContentGenerator {
                     return $response;
                 }
             } elseif ($query instanceof ImageQuery ) {
-				$data     = $this->api->create_images( $query->to_request_body() );
+				$data = $this->api->create_images( $query->to_request_body() );
+				$image_urls = [];
+				
+				if (!is_string($data)) {
+					if ($query->model === 'gpt-image-1') {
+						// Handle base64 responses for gpt-image-1
+						foreach ($data['data'] as $image_data) {
+							if (isset($image_data['b64_json'])) {
+								$image_urls[] = 'data:image/png;base64,' . $image_data['b64_json'];
+							}
+						}
+					} else {
+						// Handle URL responses for DALL-E models
+						$image_urls = array_column($data['data'], 'url');
+					}
+				} else {
+					$image_urls = [$data];
+				}
+
 				$response = new Response(
 					$query,
-					! is_string( $data ) ? array_column( $data['data'], 'url' ) : array( $data ),
-					! is_string( $data ) ? $data : array( $data ),
+					$image_urls,
+					is_string($data) ? [$data] : $data
 				);
 			} elseif ( $query instanceof MessageQuery ) {
 				$data     = $this->api->create_message_completions( $query->to_request_body() );

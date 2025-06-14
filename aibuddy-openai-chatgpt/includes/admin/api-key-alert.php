@@ -1,11 +1,20 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+$current_page = isset($_GET['page']) ? sanitize_key($_GET['page']) : '';
 $general_setting = get_option( 'ai_buddy', array() );
-if ( isset( $general_setting['api_key_validation'] ) && isset($general_setting['openai']['apikey']) && !empty($general_setting['openai']['apikey']) ) {
-	$validator = ( 'invalid' === $general_setting['api_key_validation'] ) ? 'invalid' : 'valid';
+$has_any_api = \AiBuddy\ApiManager::hasAnyApiKey();
+$openai_required_tabs = ['ai_buddy_image_generator', 'ai_buddy_chatbot'];
+$is_openai_tab = in_array($current_page, $openai_required_tabs);
+if ($is_openai_tab) {
+    $has_openai = \AiBuddy\ApiManager::hasProviderApiKey(\AiBuddy\ApiManager::PROVIDER_OPENAI);
+    $validator = $has_openai ? 'valid' : 'invalid';
 } else {
-	$validator = 'invalid';
+    $validator = $has_any_api ? 'valid' : 'invalid';
+}
+
+if (!$is_openai_tab && $has_any_api) {
+    return;
 }
 ?>
 <div class="api-key-settings <?php echo esc_attr( $validator ); ?>">
@@ -13,6 +22,7 @@ if ( isset( $general_setting['api_key_validation'] ) && isset($general_setting['
 		<img src="<?php echo esc_url( AI_BUDDY_FILES_PATH . 'assets/images/alert.svg' ); ?>" width="18" height="18" alt="<?php echo esc_attr__('AiBud WP Plugin get API Key', 'aibuddy-openai-chatgpt'); ?>" />
 	</div>
 	<div class="api-key-settings-content">
+		<?php if ($is_openai_tab): ?>
 		<span><?php echo esc_html__( 'Please enter your OpenAI API key!', 'aibuddy-openai-chatgpt' ); ?></span>
 		<span class="api-key-validation">
 			<?php
@@ -24,6 +34,12 @@ if ( isset( $general_setting['api_key_validation'] ) && isset($general_setting['
 			);
 			?>
 		</span>
+		<?php else: ?>
+		<span><?php echo esc_html__( 'Please enter at least one API key!', 'aibuddy-openai-chatgpt' ); ?></span>
+		<span class="api-key-validation">
+			<?php echo esc_html__( 'You need to configure at least one API key in the settings.', 'aibuddy-openai-chatgpt' ); ?>
+		</span>
+		<?php endif; ?>
 	</div>
 	<div class="api-key-settings-button">
 		<a href="<?php echo esc_url(admin_url('admin.php?page=ai_buddy_settings')); ?>" class="ai-buddy-button">

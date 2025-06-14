@@ -114,21 +114,59 @@ return array(
 				'unit'  => 1 / 1000,
 			),
 			array(
-				'model' => 'dall-e',
+				'model' => 'dall-e-2',
 				'type'  => 'image',
 				'unit'  => 1,
 				'sizes' => array(
 					array(
 						'size'  => '1024x1024',
-						'price' => 0.02,
+						'price' => 0.016, // actual
 					),
 					array(
 						'size'  => '512x512',
-						'price' => 0.018,
+						'price' => 0.018, // actual
 					),
 					array(
 						'size'  => '256x256',
-						'price' => 0.016,
+						'price' => 0.016, // actual
+					),
+				),
+			),
+			array(
+				'model' => 'dall-e-3',
+				'type'  => 'image',
+				'unit'  => 1,
+				'sizes' => array(
+					array(
+						'size'  => '1024x1024',
+						'price' => 0.040, // default: standard quality
+					),
+					array(
+						'size'  => '512x512',
+						'price' => 0.030, // estimated (scaled down)
+					),
+					array(
+						'size'  => '256x256',
+						'price' => 0.020, // estimated (scaled down)
+					),
+				),
+			),
+			array(
+				'model' => 'gpt-image-1',
+				'type'  => 'image',
+				'unit'  => 1,
+				'sizes' => array(
+					array(
+						'size'  => '1024x1024',
+						'price' => 0.042, // medium quality (best fit for "auto")
+					),
+					array(
+						'size'  => '512x512',
+						'price' => 0.032, // estimated (scaled down from 1024x1024 medium)
+					),
+					array(
+						'size'  => '256x256',
+						'price' => 0.022, // estimated (scaled down)
 					),
 				),
 			),

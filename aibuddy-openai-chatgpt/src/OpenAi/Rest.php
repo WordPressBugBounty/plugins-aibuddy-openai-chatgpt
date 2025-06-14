@@ -153,6 +153,29 @@ final class Rest {
 
 	public function get_files(): WP_REST_Response {
 		try {
+			// If no API keys are available at all, return a helpful error
+			if (!\AiBuddy\ApiManager::hasAnyApiKey()) {
+				return new WP_REST_Response(
+					array(
+						'message' => 'No API keys are configured. Please add at least one API key in the plugin settings.',
+					),
+					400
+				);
+			}
+			
+			// Check if OpenAI API key exists - even if OpenAI key is missing
+			if (!(\AiBuddy\ApiManager::hasProviderApiKey(\AiBuddy\ApiManager::PROVIDER_OPENAI))) {
+				// If any other API key exists, return an empty files array instead of error
+				if (\AiBuddy\ApiManager::hasAnyApiKey()) {
+					return new WP_REST_Response(
+						array(
+							'files' => [],
+						),
+						200
+					);
+				}
+			}
+			
 			$files = $this->api->get_files();
 
 			return new WP_REST_Response(

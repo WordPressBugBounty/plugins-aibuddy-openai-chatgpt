@@ -181,6 +181,10 @@ class Api
 
     public function request($method, $endpoint, $body = null)
     {
+        if (empty($this->api_key)) {
+            throw new \RuntimeException('No API key is configured. Please add at least one API key in the plugin settings.');
+        }
+
         $headers = [
             'Authorization' => 'Bearer ' . $this->api_key,
         ];
@@ -335,6 +339,16 @@ class Api
 
     private function get_model_suffix($model)
     {
+        if ($model === null) {
+            return 'Unknown';
+        }
+        
+        // If it's a DALL-E model, return the full model name
+        if (strpos($model, 'dall-e') === 0) {
+            return $model;
+        }
+        
+        // For fine-tuned models, extract the suffix
         preg_match('/:([^:]+)(?=:[^:]+$)/', $model, $matches);
         if (count($matches) > 0) {
             return $matches[1];

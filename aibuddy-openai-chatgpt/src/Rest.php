@@ -315,6 +315,15 @@ class Rest {
 		$options                    = $this->core->options->to_array();
 		$options['openai']['usage'] = get_option( 'ai_buddy_openai_usage' );
 
+		// Add ApiManager data for frontend
+		$options['api_manager'] = [
+			'available_keys' => ApiManager::getAvailableApiKeys(),
+			'has_any_key' => ApiManager::hasAnyApiKey(),
+			'default_model' => ApiManager::getDefaultModel(
+				isset($options['fse']['model']) ? $options['fse']['model'] : null
+			)
+		];
+
 		return new WP_REST_Response(
 			array(
 				'settings' => $options,
@@ -435,7 +444,7 @@ class Rest {
 			$response = $this->ai->exec( QueryFactory::text( $params['messages'], $params ) );
 
             if (isset($response->raw['error'])) {
-                throw new Exception ( __( 'We’re unable to locate an API Key for the selected AI Model. Please proceed to the settings to enter your API Key.', 'aibuddy-openai-chatgpt' ));
+                throw new Exception( __( "We're unable to locate an API Key for the selected AI Model. Please proceed to the settings to enter your API Key.", 'aibuddy-openai-chatgpt' ) );
             }
 
             if (isset($params['source_page']) && $params['source_page'] === 'post_page') {

@@ -4,6 +4,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $general_setting = get_option( 'ai_buddy', array() );
 
 $dropdown_images = array(
+	'Model'           => array(
+		'id'              => 'images-model-options',
+		'option_selected' => isset( $general_setting['image_generator']['model'] ) ? $general_setting['image_generator']['model'] : 'gpt-image-1',
+		'option'          => array(
+			'gpt-image-1' => 'GPT-IMAGE-1',
+			'dall-e-3'    => 'DALL-E-3',
+			'dall-e-2'    => 'DALL-E-2',
+		),
+	),
 	'Artist'          => array(
 		'id'              => 'images-artist-options',
 		'option_selected' => isset( $general_setting['image_generator']['artist'] ) ? $general_setting['image_generator']['artist'] : 'None',
@@ -498,7 +507,7 @@ $dropdown_images = array(
 								$selected = ' selected';
 							}
 							?>
-							<option value="<?php echo esc_html( $option ); ?>" <?php echo esc_attr( $selected ); ?>><?php echo esc_html( $option ); ?></option>
+							<option value="<?php echo esc_attr( $option_key ); ?>" <?php echo esc_attr( $selected ); ?>><?php echo esc_html( $option ); ?></option>
 						<?php endforeach; ?>
 						</select>
 					</div>

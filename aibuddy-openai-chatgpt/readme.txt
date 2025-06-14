@@ -7,15 +7,21 @@ Author: AI Bud
 Requires at least: 4.6  
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.8.4
+Stable tag: 1.8.5
 License: GPLv2 or later  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html  
   
 AI Bud an AI Content & Image Generation, AI ChatBot, ChatGPT, OpenAI, Perplexity, Gemini, GPT-4o, LLAMA, Mistral    
   
 == Description ==  
+
+### Best AI Plugin for WordPress
+
+AI Bud is the [best ai content generator and chatbot plugin for WordPress](https://aibudwp.com/?utm_source=wporg&utm_medium=pluginlisting&utm_campaign=pluginfirstheading). AI Bud is a perfect WordPress AI plugin for all kind of AI generated content, comment generation, chatbot and AI generated images.
+
+**[AI Bud Pro ⭐](https://aibudwp.com/pricing/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page)** | **[Features](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page)** | **[Documentation](https://aibudwp.com/docs/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page)** | **[Contact Us](https://aibudwp.com/contact/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page)**
   
-AI Bud is a perfect WordPress AI plugin for all kind of AI generated content, comment generation, chatbot and images. AI Bud provides chatbot, image & content generator, model finetuning, WooCommerce product writer, SEO optimizer, content translator and text proofreading features, etc. Based on GPT-3 and GPT-4 by [OpenAI](https://openai.com/), [Google Gemini](https://gemini.google.com/), [Claude](https://claude.ai) or [OpenRouter](https://openrouter.ai/), this WordPress plugin harnesses the power of the latest AI technology to produce high-quality content in various languages, with customizable writing styles and tones that match your needs.
+AI Bud provides chatbot, image & content generator, model finetuning, WooCommerce product writer, SEO optimizer, content translator and text proofreading features, etc. Based on GPT-3 and GPT-4 by [OpenAI](https://openai.com/), [Google Gemini](https://gemini.google.com/), [Claude](https://claude.ai) or [OpenRouter](https://openrouter.ai/), this WordPress plugin harnesses the power of the latest AI technology to produce high-quality content in various languages, with customizable writing styles and tones that match your needs.
 
 [youtube https://youtu.be/7u44-t-Irfw]  
   
@@ -30,10 +36,10 @@ Do you want to ask pre-sale question, feedback, support? Let us know! 👉 [http
   
 ## MAIN FEATURES
 
-## AI Content Generation:
+### AI Content Generator 🤖 ([Free Feature ✨](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page))
 Create content in minutes with the AI Content Builder module. You can generate both individual posts or entire topics by defining the number of sections and paragraphs at once in **bulk mode**. Here are the prompts for the content builder module:
 
-- **Different AI Models:** Create engaging content using different AI Models such as **OpenAI**, **Claude**, and **Google Gemini** models.
+- **Different AI Models:** Create engaging content using different AI Models such as **OpenAI**, **Claude**, and **Google Gemini**,**Open Router**  models.
 - **Block Editor Support:** AI Bud has a Gutenberg Block inside the plugin so you can easily create AI powered content within the **WordPress Block Editor**.
 - **Helper in Edit Post:** AI Bud provides several metabox that will allow you to create title, excerpt, image, **WooCommerce products** easily in the Edit Page of WordPress. 
 - **Bulk Content Generator:** AI Bud has bulk content editor that helps you to create multiple content in seconds. You just need to enter the titles and it will create all contents for them. 
@@ -43,7 +49,7 @@ Create content in minutes with the AI Content Builder module. You can generate b
   
 [AI Content Builder Documentation](https://aibudwp.com/docs/content-builder?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
   
-## AI Comment Generator - Pro Feature ⭐
+### AI Comment Generator 💬 ([Pro Feature ⭐](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page))
 **AI Bud is the only AI plugin that provides such a feature!**  
    
 [youtube https://youtu.be/cCKggPgneco]
@@ -56,7 +62,7 @@ This feature makes it easier than ever for users to leave feedback. AI Comment G
 - **Increased Engagement**: By lowering the barrier to leaving comments, the Comment Generator can significantly increase the number and quality of reviews and feedback. This valuable user-generated content can improve SEO, provide social proof, and influence potential customers' buying decisions. 
 - **Customization Options:** Site administrators can customize the feature by setting a maximum word count for generated comments, ensuring that the feedback is concise and to the point. Additionally, the option to include emojis offers a touch of personality and visual appeal, making the comments more engaging and relatable.
   
-## AI Chat Bot - Pro Feature ⭐
+### AI Chat Bot 👨‍💻 ([Pro Feature ⭐](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page))
 **AI Bud provides the best AI Chatbot feature!**  
   
 Pro version of plugin includes a **Chatbot** is a powerful tool that allows users to perform various tasks based on requests and instructions. With customizable appearance and advanced features, it can be easily integrated into any website. Chatbot is available exclusively in the [Pro version of the plugin](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page).  
@@ -70,7 +76,7 @@ Pro version of plugin includes a **Chatbot** is a powerful tool that allows user
   
 [AI ChatBot Documentation](https://aibudwp.com/docs/chatbot/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
   
-## AI Image Generation:
+### AI Image Generator 🤖 ([Free Feature ✨](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page))
   
 The image generator module tool, based on ChatGPT AI, helps you to create images by entering prompts through a command line. This can be useful for automating the creation of large numbers of images, as well as for creating images with specific parameters. The module leverages **DALL-E model** by OpenAI.      
   
@@ -80,7 +86,7 @@ The image generator module tool, based on ChatGPT AI, helps you to create images
   
 [AI Image Generation Documentation](https://aibudwp.com/docs/how-to-use-the-image-generator/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
   
-## AI Fine Tuning - Pro Feature  ⭐
+### AI Fine Tuning 🧠 ([Pro Feature ⭐](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page))
   
 Fine tuning is absolutely most important part for chatbot. Don't use a chatbot that doesn't know anything about your business or website. Fine Tuning is available exclusively in the [Pro version of the plugin](https://aibudwp.com/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page).  
   
@@ -90,7 +96,7 @@ Fine tuning is absolutely most important part for chatbot. Don't use a chatbot t
   
 [AI Fine Tuning Documentation](https://aibudwp.com/docs/fine-tuning/?utm_source=wporg&utm_medium=ai-buddy&utm_campaign=landing-page)
   
-## Playground:
+### Playground 🤖 ([Free Feature ✨](https://aibudwp.com/features/?utm_source=wporg&utm_medium=aibud&utm_campaign=landing-page))
 The Playground is a powerful tool that allows you to interact with the AI and explore its capabilities via a live dialogue. You can ask any question and get a response immediately.  
    
 One of the key features of the Playground module is that users can control the **Temperature** and **Max Tokens** of the generated text. Temperature controls the creativity of the AI's responses, with higher temperatures leading to more creative and unpredictable outputs. Max tokens, on the other hand, limit the length of the generated text, ensuring that responses are concise and to-the-point.
@@ -197,204 +203,6 @@ Installation is easy - all you need to do is to follow a few steps:
   
   
 == Changelog ==
-= 1.8.3 =
-* Improvement: Keys masked instead of plain text
-* Improvement: Claude Models Updated
-* Fix: Showing Claude API connection message directly from API
 
-= 1.8.3 =
-* Fix: Chatbot and fine tuning issues fixed
+For the changelog of AIBud, please refer to [the changelog on aibudwp.com](https://aibudwp.com/changelog.txt).
 
-= 1.8.2 =
-* Update: Google AI Model List Updated and 2.0 2.5 models added to list
-* Fix: Google AI Key Saving Issue
-
-= 1.8.1 =
-* Fix: Plugin hardening 
-
-= 1.8.0 =
-* Multple security fixes.
-* Plugin stability improvements.
-
-= 1.7.3 =
-* Fix: Updated Freemius SDK.
-
-= 1.7.2 =
-* Improvement: stability and performance improvements.
-
-= 1.7.1 =
-* Improvement: Added support for the new Gemini 1.5 Pro and 1.5 Flash to the AI Bud block.
-
-= 1.7.0 =
-* New: Gemini 1.5 Pro model is now supported for content creating.
-* New: Gemini 1.5 Flash model is now supported for content creating.
-* Fix: Various bug fixes and performance improvements.
-
-= 1.6.1 =
-* Fix: Chatbot welcome message not showing.
-
-= 1.6.0 =
-* New: Ai Bud Pro Chatbot now supports OpenAI Assistants.
-* New: Assistant chatbots can now memorize chat threads.
-* Improvement: Chatbot UI colors can now be customized.
-* Fix: Various bug fixes and performance improvements.
-
-= 1.5.4 =
-* Fix: Fixed ChatBot PHP warnings and notices.
-* Improvement: Improved admin UI look.
-
-= 1.5.3 =  
-* New: Meta: Llama 3 model added
-
-= 1.5.2 =  
-* New: ChatGPT 4o model added for content creating
-
-= 1.4.9 =  
-* Fixed: Chatbot email collection visual issues fixed
-
-= 1.4.8 =  
-* Fixed: Helper issues fixed for classic editor
-
-= 1.4.7 =  
-* Fixed: Suggest title functionality bug
-
-= 1.4.6 =  
-* Fixed: Collect email feature mobile issue
-
-= 1.4.5 =  
-* New: Collect Email feature added to Chatbot
-* Fixed: Visual fixes for chatbot
-
-= 1.4.4 =  
-* Fixed: Fine tuning chat fixed
-
-= 1.4.3 =  
-* Fixed: Block editor helper counting issue
-
-= 1.4.2 =  
-* Fixed: Chatbot Mobile responsive issue
-* Fixed: OpenRouter API Key balance error
-
-= 1.4.1 =  
-* New: OpenRouter models added for content creating
-
-= 1.4.0 =  
-* Enhancements: Excerpt prompt improved
-
-= 1.3.9 =  
-* Fixed: Fix initial redirection issue
-
-= 1.3.8 =  
-* New: Comment Generator Added
-
-= 1.3.7 =  
-* Fixed: Font style and weight issues
-
-= 1.3.6 =  
-* New: Feedback notice added
-* Enhancements: Support section in the plugin opened
-
-= 1.3.5 =  
-* New: Chatbot logs saving feature added
-* Enhancements: OpenAI key first screen removed due to provide much better onboarding experience
-* Fixed: Gutenberg block style issues fixed
-  
-= 1.3.3 =  
-* Fixed: Fixed freemius issue for pro version  
-  
-= 1.2.9 =  
-* Enhancements: Claude model added for content creating  
-* Fixed: WooCommerce product generator fixed  
-  
-= 1.2.8 =  
-* Fixed: Image generator model changed to DALL-E 3  
-  
-= 1.2.7 =  
-* Fixed: Issue with the bulk editor js  
-  
-= 1.2.6 =  
-* Enhancements: Google Gemini Pro model added for content creating  
-* Fixed: Playground issues, improve and seperate chatbot answers  
-  
-= 1.2.4 =  
-* Enhancements: Freemius opt-in checkout added  
-* Fixed: Documentation, support and website links changed  
-  
-= 1.1.11 =  
-* Fixed: Freemius fixes  
-  
-= 1.1.10 =  
-* Fixed: Minor bug fix  
-  
-= 1.1.8 =  
-* Enhancements: Added new settings for more accurate adjustment of AI models.  
-* Enhancements: Added a popup with a notification that comes if a user has not entered their Open AI account (Pro).  
-* Fixed: Pop-up when copying shortcode with warning about deleting AI template on Fine Tune and Chatbot page (Pro).  
-* Fixed: After content generation, unnecessary UI elements are present and the Loader is not displayed correctly when loading.  
-* Fixed: Prompt generation via Post and Pages occurs with errors.  
-  
-= 1.1.7 =  
-* Fixed: When a user makes a prompt to generate an image, the metadata contains all the image settings.  
-  
-= 1.1.6 =  
-* New: Added new models for Content Builder and Bulk Content Builder  
-* Update: Depreciated models Davinci, Ada, Babbage has been removed  
-  
-= 1.1.5 =  
-* Fixed: Minor bug fix  
-  
-= 1.1.4 =  
-* Fixed: Minor bug fix  
-  
-= 1.1.3 =  
-* Fixed: Minor bug fix  
-  
-= 1.1.2 =  
-* New: Adding new Rest endpoints for message type prompts  
-* Fixed: Minor bug fix  
-  
-= 1.1.1 =  
-* Fixed: Minor bug fix  
-  
-= 1.1.0 =  
-* Fixed: Minor bug fix  
-  
-= 1.0.9 =  
-* Update: Core code optimization  
-  
-= 1.0.8 =  
-* Fixed: Minor bug fix  
-  
-= 1.0.7 =  
-* Fixed: Minor bug fix  
-  
-= 1.0.6 =  
-* New: Added a featured image generator for Pages, Posts, and WooCommerce products.  
-* New: Advanced settings is added for Image Generator.  
-* Fixed: Generated number of characters was less than number of tokens specified in the “Maximum number of Tokens" field.  
-* Fixed: The title or excerpt did not generate without reloading when the page was edited with the Gutenberg editor.  
-  
-= 1.0.5 =  
-* Fixed: Generated title/excerpt did not apply to the pages that was edited with Classic Editor.  
-  
-= 1.0.4 =  
-* Fixed: Minor bug fix  
-  
-= 1.0.3 =  
-* New: A page title generator has been added for Page settings.  
-* Fixed: Generated title did not apply to the page on Gutenberg editor.  
-  
-= 1.0.2 =  
-* Update: Made corrections to the text displayed on the plugin dashboard.  
-* Fixed: Details of Generated image did not display.  
-* Fixed: Apply/Cancel buttons did not display at Generate Title and Generator Excerpt buttons while editing blog post.  
-  
-= 1.0.1 =  
-* New: Added Plugin Menu to the WordPress Dashboard Navigation.  
-* New: Navigation links for Documentation, Feedback and Support is added.  
-* Update: "Try sample" of Content builder will be disabled if OpenAI API is not specified.  
-* Fixed: Error notifications did not display when OpenAI API was not added.  
-* Fixed: Excerpts did not generate while editing posts.  
-  
-= 1.0.0 =  
-* The first release of the plugin.

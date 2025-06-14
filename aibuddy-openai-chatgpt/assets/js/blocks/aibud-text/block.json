@@ -5,7 +5,9 @@
   "version": "1.0.0",
   "title": "AIBud Content Generator",
   "category": "widgets",
-  "icon": "editor-textcolor",
+  "icon": {
+    "src": "./../../assets/icons/aibuddy-logo.svg"
+  },
   "description": "AIBud Content Generator that generates content based on the your input.",
   "keywords": [
     "content",
