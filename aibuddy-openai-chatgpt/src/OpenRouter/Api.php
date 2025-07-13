@@ -80,7 +80,7 @@ class Api
                 ]
             ],
             'max_tokens' => 5,
-            'model' => 'openai/gpt-3.5-turbo',
+            'model' => 'openai/gpt-4.1',
         ]);
 
         try {

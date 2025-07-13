@@ -6,8 +6,9 @@ use AiBuddy\Chatbot\SessionStore;
 use AiBuddy\Claude\Api as ClaudeAiApi;
 use AiBuddy\Google\Api as GoogleAiApi;
 use AiBuddy\OpenAi\Api as OpenAiApi;
+use AiBuddy\OpenAi\AssistantApi;
+use AiBuddy\OpenAi\ThreadApi;
 use AiBuddy\OpenRouter\Api as OpenRouterApi;
-use OpenAI\Client;
 use Parsedown;
 
 class Container {
@@ -73,7 +74,8 @@ class Container {
                 return new Chatbot\Rest(
                     $this->get( \AiBuddy\AiContentGenerator::class ),
                     $this->get( \AiBuddy\Markdown::class ),
-                    $this->get( Client::class ),
+                    $this->get( AssistantApi::class ),
+                    $this->get( ThreadApi::class ),
                     $this->get( SessionStore::class ),
                     $this->options,
                 );
@@ -92,18 +94,21 @@ class Container {
                     $this->get( OpenAiApi::class )
                 );
             },
-            Client::class                      => function () {
-                return \OpenAI::client( $this->options->get( 'openai.apikey', '' ) );
+            AssistantApi::class                => function () {
+                return new AssistantApi( $this->options->get( 'openai.apikey', '' ) );
+            },
+            ThreadApi::class                   => function () {
+                return new ThreadApi( $this->options->get( 'openai.apikey', '' ) );
             },
             SessionStore::class => function () {
-                return new SessionStore( $this->get( Client::class ), $this->get( Markdown::class ) );
+                return new SessionStore( $this->get( ThreadApi::class ), $this->get( Markdown::class ) );
             },
             Plugin::class                      => function () {
                 return new Plugin( AI_BUDDY_SLUG, AI_BUDDY_FILE );
             },
             \AiBuddy\Chatbot\Assistants::class => function () {
                 return new \AiBuddy\Chatbot\Assistants(
-                    $this->get( Client::class )
+                    $this->get( AssistantApi::class )
                 );
             },
         ];

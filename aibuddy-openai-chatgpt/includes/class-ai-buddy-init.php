@@ -156,6 +156,11 @@ class AI_Buddy_Init {
                     'rest_url' => rest_url(),
                     'nonce'    => wp_create_nonce( 'wp_rest' ),
                 ],
+                'ai_buddy_image_analyzer' => [
+                    'api_url'  => rest_url( '/ai-buddy/v1/ai/analyzer/image' ),
+                    'rest_url' => rest_url(),
+                    'nonce'    => wp_create_nonce( 'wp_rest' ),
+                ],
                 'ai_buddy_image_post_generator' => [
                     'api_url'  => rest_url( '/ai-buddy/v1/ai/generator/post_images' ),
                     'rest_url' => rest_url(),

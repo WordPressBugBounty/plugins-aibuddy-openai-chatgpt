@@ -29,6 +29,7 @@
 						<div class="image-info-subtitle"><?php echo esc_html__( 'File name', 'aibuddy-openai-chatgpt' ); ?></div>
 						<input type="text" name="image-file-name">
 						<div class="popup-buttons-wrapper">
+							<button class="fill-with-ai-button popup-button"><i class="aibuddy-loader"></i><?php echo esc_html__( 'Fill with AI', 'aibuddy-openai-chatgpt' ); ?></button>
 							<button class="add-to-media popup-button"><i class="aibuddy-loader"></i><?php echo esc_html__( 'Add to media library', 'aibuddy-openai-chatgpt' ); ?></button>
 							<a href="#" class="download popup-button" target="_blank"><?php echo esc_html__( 'Download', 'aibuddy-openai-chatgpt' ); ?></a>
 						</div>

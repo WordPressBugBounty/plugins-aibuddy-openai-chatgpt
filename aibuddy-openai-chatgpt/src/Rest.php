@@ -146,6 +146,21 @@ class Rest {
 				),
 			)
 		);
+		register_rest_route(
+			$namespace,
+			'/ai/analyzer/image',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => array( AuthGate::class, 'authorized' ),
+				'callback'            => array( $this, 'analyze_image' ),
+				'args'                => array(
+					'image_url' => array(
+						'required' => true,
+						'type'     => 'string',
+					),
+				),
+			)
+		);
         register_rest_route(
 			$namespace,
 			'/ai/notice',
@@ -309,6 +324,15 @@ class Rest {
 				'callback'            => array( $this, 'get_range_post_content' ),
 			)
 		);
+		register_rest_route(
+			$namespace,
+			'/models',
+			array(
+				'methods'             => 'GET',
+				'permission_callback' => array( AuthGate::class, 'authorized' ),
+				'callback'            => array( $this, 'get_models' ),
+			)
+		);
 	}
 
 	public function get_settings() {
@@ -444,7 +468,7 @@ class Rest {
 			$response = $this->ai->exec( QueryFactory::text( $params['messages'], $params ) );
 
             if (isset($response->raw['error'])) {
-                throw new Exception( __( "We're unable to locate an API Key for the selected AI Model. Please proceed to the settings to enter your API Key.", 'aibuddy-openai-chatgpt' ) );
+                throw new Exception ( __( 'We are unable to locate an API Key for the selected AI Model. Please proceed to the settings to enter your API Key.', 'aibuddy-openai-chatgpt' ));
             }
 
             if (isset($params['source_page']) && $params['source_page'] === 'post_page') {
@@ -521,6 +545,60 @@ class Rest {
 				),
 				500
 			);
+		}
+	}
+
+	/**
+	 * Analyze image to generate metadata
+	 *
+	 * @param WP_REST_Request $request accepts image_url.
+	 * @Throws Exception on error.
+	 * @return WP_REST_Response response.
+	 */
+	public function analyze_image( WP_REST_Request $request ) {
+		try {
+			$params = $request->get_json_params();
+			$image_url = $params['image_url'] ?? null;
+			
+			if ( ! $image_url ) {
+				return new WP_REST_Response( array( 'success' => false, 'message' => 'Image URL required' ), 400 );
+			}
+			
+			$messages = array(
+				array(
+					'role' => 'user',
+					'content' => array(
+						array( 'type' => 'text', 'text' => 'Analyze this image and return metadata as JSON: {"title": "descriptive title", "caption": "brief caption", "description": "detailed description", "alt_text": "accessibility text", "filename": "suggested-name.jpg"}' ),
+						array( 'type' => 'image_url', 'image_url' => array( 'url' => $image_url ) )
+					)
+				)
+			);
+			
+			$response = $this->api->create_message_completions( array(
+				'model' => 'gpt-4o',
+				'messages' => $messages,
+				'max_tokens' => 300
+			) );
+			
+			if ( isset( $response['choices'][0]['message']['content'] ) ) {
+				$content = $response['choices'][0]['message']['content'];
+				
+				// Extract JSON from markdown if wrapped
+				if ( strpos( $content, '```' ) !== false ) {
+					$content = preg_replace( '/```(?:json)?\s*(.*?)\s*```/s', '$1', $content );
+				}
+				
+				$metadata = json_decode( trim( $content ), true );
+				
+				if ( json_last_error() === JSON_ERROR_NONE && is_array( $metadata ) ) {
+					return new WP_REST_Response( array( 'success' => true, 'data' => $metadata ), 200 );
+				}
+			}
+			
+			return new WP_REST_Response( array( 'success' => false, 'message' => 'Failed to analyze image' ), 500 );
+			
+		} catch ( Exception $e ) {
+			return new WP_REST_Response( array( 'success' => false, 'message' => $e->getMessage() ), 500 );
 		}
 	}
 
@@ -722,12 +800,25 @@ class Rest {
 			require_once ABSPATH . 'wp-admin/includes/media.php';
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 
-			$attachment_id = media_sideload_image(
-				$request->get_param( 'url' ),
-				0,
-				sanitize_text_field( $request->get_param( 'title' ) ),
-				'id'
-			);
+			$url = $request->get_param( 'url' );
+			
+			// Check if the URL is a base64 data URL (like from GPT image generation)
+			if ( strpos( $url, 'data:image' ) === 0 ) {
+				// Handle base64 data URL
+				$attachment_id = $this->handle_base64_image(
+					$url,
+					sanitize_text_field( $request->get_param( 'title' ) ),
+					sanitize_text_field( $request->get_param( 'filename' ) )
+				);
+			} else {
+				// Handle regular URL
+				$attachment_id = media_sideload_image(
+					$url,
+					0,
+					sanitize_text_field( $request->get_param( 'title' ) ),
+					'id'
+				);
+			}
 
 			if ( is_wp_error( $attachment_id ) ) {
 				return new WP_REST_Response(
@@ -779,6 +870,75 @@ class Rest {
 		}
 	}
 
+	/**
+	 * Handle base64 data URL by converting it to a temporary file and creating attachment
+	 * 
+	 * @param string $data_url Base64 data URL (like data:image/png;base64,...)
+	 * @param string $title Title for the attachment
+	 * @param string $filename Optional filename
+	 * @return int|\WP_Error Attachment ID on success, WP_Error on failure
+	 */
+	private function handle_base64_image( $data_url, $title = '', $filename = '' ) {
+		// Parse the data URL to extract mime type and base64 data
+		if ( ! preg_match( '/^data:image\/([a-z]+);base64,(.+)$/i', $data_url, $matches ) ) {
+			return new \WP_Error( 'invalid_data_url', 'Invalid base64 data URL format' );
+		}
+
+		$image_type = $matches[1]; // e.g., 'png', 'jpeg', 'gif'
+		$base64_data = $matches[2];
+
+		// Decode the base64 data
+		$image_data = base64_decode( $base64_data );
+		if ( $image_data === false ) {
+			return new \WP_Error( 'base64_decode_failed', 'Failed to decode base64 data' );
+		}
+
+		// Generate filename if not provided
+		if ( empty( $filename ) ) {
+			$filename = 'generated-image-' . uniqid() . '.' . $image_type;
+		} else {
+			// Ensure the filename has the correct extension
+			$filename = preg_replace( '/\.[^.]+$/', '', $filename ) . '.' . $image_type;
+		}
+
+		// Create temporary file
+		$tmp_file = wp_tempnam( $filename );
+		if ( ! $tmp_file ) {
+			return new \WP_Error( 'temp_file_failed', 'Failed to create temporary file' );
+		}
+
+		// Write image data to temporary file
+		if ( file_put_contents( $tmp_file, $image_data ) === false ) {
+			@unlink( $tmp_file );
+			return new \WP_Error( 'file_write_failed', 'Failed to write image data to temporary file' );
+		}
+
+		// Create file array for media_handle_sideload
+		$file_array = array(
+			'name'     => $filename,
+			'tmp_name' => $tmp_file,
+			'error'    => 0,
+			'size'     => filesize( $tmp_file ),
+		);
+
+		// Set mime type based on image type
+		$mime_types = array(
+			'png'  => 'image/png',
+			'jpg'  => 'image/jpeg',
+			'jpeg' => 'image/jpeg',
+			'gif'  => 'image/gif',
+			'webp' => 'image/webp',
+		);
+		$file_array['type'] = isset( $mime_types[ $image_type ] ) ? $mime_types[ $image_type ] : 'image/' . $image_type;
+
+		// Use media_handle_sideload to create the attachment
+		$attachment_id = media_handle_sideload( $file_array, 0, $title );
+
+		// Clean up temporary file
+		@unlink( $tmp_file );
+
+		return $attachment_id;
+	}
 
 	public function get_post_content( WP_REST_Request $request ) {
 		$post = get_post( (int) $request->get_param( 'post_id' ) );
@@ -996,5 +1156,44 @@ class Rest {
 
         $filesystem = new \WP_Filesystem_Direct(null);
         $filesystem->move($file, $new_file);
+    }
+
+    /**
+     * Get models list
+     *
+     * @param WP_REST_Request $request The request object.
+     * @return WP_REST_Response The response object.
+     */
+    public function get_models( WP_REST_Request $request ) {
+        try {
+            $models = Models::get_models_list();
+            
+            // Transform the models into the format expected by the frontend
+            $formatted_models = [];
+            
+            foreach ($models as $provider => $provider_models) {
+                $options = [];
+                foreach ($provider_models as $model_id => $model_name) {
+                    $options[] = [
+                        'value' => $model_id,
+                        'label' => $model_name
+                    ];
+                }
+                
+                $formatted_models[] = [
+                    'label' => $provider,
+                    'options' => $options
+                ];
+            }
+            
+            return new WP_REST_Response([
+                'models' => $formatted_models
+            ], 200);
+            
+        } catch (Exception $e) {
+            return new WP_REST_Response([
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 }
