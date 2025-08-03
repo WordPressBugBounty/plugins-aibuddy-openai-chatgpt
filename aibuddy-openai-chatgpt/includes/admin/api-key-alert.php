@@ -1,7 +1,8 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$current_page = isset($_GET['page']) ? sanitize_key($_GET['page']) : '';
+//phcpcs:ignore because no nonce needed since it can be linked to directly
+$current_page = isset($_GET['page']) ? sanitize_key($_GET['page']) : ''; //phpcs:ignore
 $general_setting = get_option( 'ai_buddy', array() );
 $has_any_api = \AiBuddy\ApiManager::hasAnyApiKey();
 $openai_required_tabs = ['ai_buddy_image_generator', 'ai_buddy_chatbot'];

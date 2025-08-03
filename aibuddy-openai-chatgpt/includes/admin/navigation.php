@@ -3,8 +3,8 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-// Exit if accessed directly
-$current_page = ( isset( $_GET['page'] ) ? sanitize_key( $_GET['page'] ) : '' );
+// Exit if accessed directly //phcpcs:ignore because no nonce needed since it can be linked to directly
+$current_page = ( isset( $_GET['page'] ) ? sanitize_key( $_GET['page'] ) : '' ); //phpcs:ignore
 ?>
 <div class="ai-buddy-navigation">
     <div class="ai-buddy-navigation-logo">

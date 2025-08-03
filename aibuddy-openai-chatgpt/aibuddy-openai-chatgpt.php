@@ -2,15 +2,14 @@
 
 /**
  * Plugin Name: AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o 
- * Plugin URI: https://wordpress.org/plugins/aibuddy-openai-chatgpt/
+ * Plugin URI: https://aibudwp.com/
  * Description: AI Bud is an AI Plugin. AI Content & Image Generation, AI ChatBot, ChatGPT, OpenAI, Perplexity, Gemini, GPT-4o, LLAMA, Mistral
- * Author: AI Bud
- * Author URI: https://aibudwp.com/
+ * Author: WebFactory Ltd
+ * Author URI: https://www.webfactoryltd.com/
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: aibuddy-openai-chatgpt
- * Version: 1.8.6
- *
+ * Version: 1.9
  */
 if ( !defined( 'ABSPATH' ) ) {
     exit;

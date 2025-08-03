@@ -63,7 +63,7 @@ class Api
 
             return $data;
         } catch (Exception $e) {
-            throw new Exception('OpenRouter API Error: ' . $e->getMessage());
+            throw new Exception('OpenRouter API Error: ' . esc_html($e->getMessage()));
         }
     }
 
@@ -109,7 +109,7 @@ class Api
                 }
 
         } catch (Exception $e) {
-            throw new Exception('OpenRouter API Error: ' . $e->getMessage());
+            throw new Exception('OpenRouter API Error: ' . esc_html($e->getMessage()));
         }
     }
     

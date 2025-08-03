@@ -34,7 +34,7 @@ class ThreadApi {
         $response = wp_remote_request($url, $args);
 
         if (is_wp_error($response)) {
-            throw new Exception($response->get_error_message());
+            throw new Exception(esc_html($response->get_error_message()));
         }
 
         $body = wp_remote_retrieve_body($response);
@@ -43,7 +43,7 @@ class ThreadApi {
         if ($status_code >= 400) {
             $error_data = json_decode($body, true);
             $message = isset($error_data['error']['message']) ? $error_data['error']['message'] : 'Unknown error';
-            throw new Exception("OpenAI API Error ($status_code): $message");
+            throw new Exception(esc_html("OpenAI API Error ($status_code): $message"));
         }
 
         $decoded = json_decode($body, true);
@@ -85,7 +85,7 @@ class ThreadApi {
         try {
             $run_data = $this->create_thread_run($thread_id, $data);
         } catch (Exception $e) {
-            throw new Exception('Failed to create thread run: ' . $e->getMessage());
+            throw new Exception(esc_html('Failed to create thread run: ' . $e->getMessage()));
         }
         
         // Poll until completion
@@ -98,7 +98,7 @@ class ThreadApi {
                 $runs = $this->list_thread_runs($thread_id);
                 $current_run = $runs['data'][0] ?? null;
             } catch (Exception $e) {
-                throw new Exception('Failed to check run status: ' . $e->getMessage());
+                throw new Exception(esc_html('Failed to check run status: ' . $e->getMessage()));
             }
             $attempts++;
         } while ($current_run && $current_run['status'] !== 'completed' && $current_run['status'] !== 'failed' && $attempts < $max_attempts);
@@ -112,7 +112,7 @@ class ThreadApi {
             if (isset($current_run['last_error']['message'])) {
                 $error_message .= ': ' . $current_run['last_error']['message'];
             }
-            throw new Exception($error_message);
+            throw new Exception(esc_html($error_message));
         }
         
         if ($attempts >= $max_attempts) {
@@ -136,10 +136,10 @@ class ThreadApi {
                     throw new Exception('No assistant response found in thread messages');
                 }
             } catch (Exception $e) {
-                throw new Exception('Failed to retrieve thread messages: ' . $e->getMessage());
+                throw new Exception(esc_html('Failed to retrieve thread messages: ' . $e->getMessage()));
             }
         }
         
-        throw new Exception('Run completed with unexpected status: ' . ($current_run['status'] ?? 'unknown'));
+        throw new Exception(esc_html('Run completed with unexpected status: ' . ($current_run['status'] ?? 'unknown')));
     }
 } 

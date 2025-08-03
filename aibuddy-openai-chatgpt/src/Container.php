@@ -116,7 +116,7 @@ class Container {
 
     public function get( $key ) {
         if ( ! isset( $this->classes[ $key ] ) ) {
-            throw new \InvalidArgumentException( "No such key in container: $key" );
+            throw new \InvalidArgumentException( "No such key in container: " . esc_html($key) );
         }
 
         return $this->classes[$key]();

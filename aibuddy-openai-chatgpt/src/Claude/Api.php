@@ -80,7 +80,7 @@ class Api {
 
             return $data;
         } catch ( Exception $e ) {
-            throw new Exception( 'Claude API Error: ' . $e->getMessage() );
+            throw new Exception( 'Claude API Error: ' . esc_html($e->getMessage()) );
         }
     }
 
@@ -129,7 +129,7 @@ class Api {
             }
 
         } catch ( Exception $e) {
-            throw new Exception('Claude API Error: ' . $e->getMessage());
+            throw new Exception('Claude API Error: ' . esc_html($e->getMessage()));
         }
     }
 

@@ -237,7 +237,7 @@ class Api
 
             return $data;
         } catch (Exception $e) {
-            throw new Exception('OpenAI API Error: ' . $e->getMessage());
+            throw new Exception('OpenAI API Error: ' . esc_html($e->getMessage()));
         }
     }
 
@@ -283,7 +283,7 @@ class Api
                 }
 
         } catch (Exception $e) {
-            throw new Exception('OpenAI API Error: ' . $e->getMessage());
+            throw new Exception('OpenAI API Error: ' . esc_html($e->getMessage()));
         }
     }
 
@@ -297,7 +297,7 @@ class Api
         $response = wp_remote_get($url, ['sslverify' => false]);
 
         if (is_wp_error($response)) {
-            throw new Exception($response->get_error_message());
+            throw new Exception(esc_html($response->get_error_message()));
         }
 
         $xml = simplexml_load_string(wp_remote_retrieve_body($response));

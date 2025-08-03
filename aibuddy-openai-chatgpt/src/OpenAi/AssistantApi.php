@@ -34,7 +34,7 @@ class AssistantApi {
         $response = wp_remote_request($url, $args);
 
         if (is_wp_error($response)) {
-            throw new Exception($response->get_error_message());
+            throw new Exception(esc_html($response->get_error_message()));
         }
 
         $body = wp_remote_retrieve_body($response);
@@ -43,7 +43,7 @@ class AssistantApi {
         if ($status_code >= 400) {
             $error_data = json_decode($body, true);
             $message = isset($error_data['error']['message']) ? $error_data['error']['message'] : 'Unknown error';
-            throw new Exception("OpenAI API Error ($status_code): $message");
+            throw new Exception(esc_html("OpenAI API Error ($status_code): $message"));
         }
 
         $decoded = json_decode($body, true);

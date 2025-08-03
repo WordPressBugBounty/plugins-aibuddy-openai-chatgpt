@@ -116,7 +116,7 @@ class AiContentGenerator {
 			UsageLogger::log( $response );
 			return $response;
 		} catch ( Exception $e ) {
-			throw new RuntimeException( $e->getMessage() );
+			throw new RuntimeException( esc_html($e->getMessage()) );
 		}
 	}
 }

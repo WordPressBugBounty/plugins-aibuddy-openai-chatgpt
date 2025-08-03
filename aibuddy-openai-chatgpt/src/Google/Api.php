@@ -89,7 +89,7 @@ class Api {
 
             return $data;
         } catch ( Exception $e ) {
-            throw new Exception( 'Google API Error: ' . $e->getMessage() );
+            throw new Exception( 'Google API Error: ' . esc_html($e->getMessage()) );
         }
     }
 
@@ -133,7 +133,7 @@ class Api {
             }
 
         } catch ( Exception $e) {
-            throw new Exception('Google API Error: ' . $e->getMessage());
+            throw new Exception('Google API Error: ' . esc_html($e->getMessage()));
         }
     }
 

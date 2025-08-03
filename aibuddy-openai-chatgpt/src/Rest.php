@@ -909,7 +909,7 @@ class Rest {
 
 		// Write image data to temporary file
 		if ( file_put_contents( $tmp_file, $image_data ) === false ) {
-			@unlink( $tmp_file );
+			wp_delete_file( $tmp_file );
 			return new \WP_Error( 'file_write_failed', 'Failed to write image data to temporary file' );
 		}
 
@@ -935,7 +935,7 @@ class Rest {
 		$attachment_id = media_handle_sideload( $file_array, 0, $title );
 
 		// Clean up temporary file
-		@unlink( $tmp_file );
+		wp_delete_file( $tmp_file );
 
 		return $attachment_id;
 	}

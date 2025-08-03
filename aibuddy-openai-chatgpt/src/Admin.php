@@ -18,16 +18,8 @@ class Admin {
 	}
 
 	public static function plugin_actions( $links, $plugin_info, $slug ): array {
-		return array_merge(
-			$links,
-			array(
-				'settings' =>
-					sprintf(
-						__( '<a href="admin.php?page=%s_settings">Settings</a>', 'aibuddy-openai-chatgpt'), 
-						$slug,
-					),
-			),
-		);
+        /* translators: %s is replaced with the plugin slug */
+		return array_merge(	$links,	array('settings' => sprintf(__( '<a href="admin.php?page=%s_settings">Settings</a>', 'aibuddy-openai-chatgpt'), $slug) ) );
 	}
 
 	public function post_row_actions( $actions, $post ) {
